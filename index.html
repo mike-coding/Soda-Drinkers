@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soda Drinker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Menu -->
+    <div id="main-menu" class="screen active">
+        <h1 class="title">SODA DRINKERS</h1>
+        <div class="menu-content">
+            <input type="text" id="username-input" placeholder="Enter your username" maxlength="20">
+            <button id="join-btn" class="menu-btn">Start Drinking!</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-container">
+            <!-- Header -->
+            <header>
+                <h2>SODA DRINKERS</h2>
+                <div class="user-info">
+                    <span id="current-user">you: <strong></strong></span>
+                    <span id="user-soda-count">sodas: <strong>0</strong></span>
+                </div>
+            </header>
+
+            <!-- Main Game Area -->
+            <div class="game-content">
+                <!-- The Circle - Where players sit -->
+                <div class="circle-area">
+                    <div id="players-circle" class="players-circle">
+                        <!-- Players will be positioned here in a circle -->
+                    </div>
+                </div>
+
+                <!-- Bottom Controls -->
+                <div class="controls-area">
+                    <!-- Soda Selection -->
+                    <div class="soda-panel">
+                        <h3>grab a soda:</h3>
+                        <div class="soda-buttons">
+                            <button class="soda-btn sprite" data-soda="Sprite">
+                                <span class="soda-icon">🥤</span>
+                                <span>Sprite</span>
+                            </button>
+                            <button class="soda-btn pepsi" data-soda="Pepsi">
+                                <span class="soda-icon">🥤</span>
+                                <span>Pepsi</span>
+                            </button>
+                            <button class="soda-btn coca-cola" data-soda="Coca-Cola">
+                                <span class="soda-icon">🥤</span>
+                                <span>Coke</span>
+                            </button>
+                            <button class="soda-btn dr-pepper" data-soda="Dr. Pepper">
+                                <span class="soda-icon">🥤</span>
+                                <span>Dr Pepper</span>
+                            </button>
+                            <button class="soda-btn mt-dew" data-soda="Mt. Dew">
+                                <span class="soda-icon">🥤</span>
+                                <span>Mt Dew</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Panel -->
+                    <div class="chat-panel">
+                        <h3>say something:</h3>
+                        <div class="chat-buttons">
+                            <button class="chat-btn" data-message="Hello!">Hello!</button>
+                            <button class="chat-btn" data-message="I'm drinking soda!">I'm drinking soda!</button>
+                            <button class="chat-btn" data-message="I've drank {x} sodas!">I've drank {x} sodas!</button>
+                            <button class="chat-btn" data-message="I'm going to take your soda!">I'm going to take your soda!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>

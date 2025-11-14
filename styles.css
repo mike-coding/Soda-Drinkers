@@ -1,0 +1,436 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: #8b7355;
+    min-height: 100vh;
+    color: #222;
+    image-rendering: pixelated;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Main Menu */
+#main-menu {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.title {
+    font-size: 8rem;
+    font-weight: 900;
+    color: #ff6600;
+    text-shadow: 
+        3px 3px 0px #000,
+        6px 6px 0px #ff0000;
+    margin-bottom: 3rem;
+    letter-spacing: 0.5rem;
+    transform: rotate(-2deg);
+}
+
+.menu-content {
+    background: #f4e4c1;
+    padding: 3rem 4rem;
+    border-radius: 5px;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+    border: 4px solid #654321;
+}
+
+#username-input {
+    width: 300px;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    border: 3px solid #333;
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    background: #fff8dc;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+#username-input:focus {
+    outline: none;
+    border-color: #000;
+}
+
+.menu-btn {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: #ff6600;
+    color: #fff;
+    border: 3px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.menu-btn:hover {
+    background: #ff8800;
+}
+
+.menu-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+/* Game Screen */
+#game-screen {
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: #d4a574;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #654321;
+    border-bottom: 5px solid #654321;
+}
+
+header h2 {
+    font-size: 2rem;
+    color: #ff6600;
+    text-shadow: 2px 2px 0px #000;
+    letter-spacing: 0.1rem;
+    transform: rotate(-1deg);
+}
+
+.user-info {
+    display: flex;
+    gap: 2rem;
+    font-size: 1rem;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.user-info span {
+    color: #222;
+}
+
+.user-info strong {
+    color: #000;
+    margin-left: 0.5rem;
+}
+
+/* Game Content */
+.game-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: calc(100vh - 120px);
+}
+
+/* Circle Area */
+.circle-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #a0826d;
+    border: 4px solid #654321;
+    border-radius: 10px;
+    position: relative;
+    min-height: 400px;
+}
+
+.players-circle {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+/* Controls Area */
+.controls-area {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}
+
+/* Panels */
+.soda-panel,
+.chat-panel {
+    background: #d4a574;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border: 3px solid #654321;
+}
+
+.soda-panel h3,
+.chat-panel h3 {
+    color: #222;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-family: 'Comic Sans MS', cursive;
+    text-transform: lowercase;
+}
+
+/* Soda Buttons */
+.soda-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.soda-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.8rem 0.6rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: 3px solid #000;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Comic Sans MS', cursive;
+    box-shadow: 3px 3px 0px #000;
+}
+
+.soda-icon {
+    font-size: 1.5rem;
+}
+
+.soda-btn.sprite {
+    background: #7fbfff;
+}
+
+.soda-btn.pepsi {
+    background: #0066cc;
+}
+
+.soda-btn.coca-cola {
+    background: #cc0000;
+}
+
+.soda-btn.dr-pepper {
+    background: #771122;
+}
+
+.soda-btn.mt-dew {
+    background: #99cc00;
+}
+
+.soda-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #000;
+}
+
+.soda-btn:active,
+.soda-btn.drinking {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #000;
+}
+
+/* Player Avatars in Circle */
+.player-avatar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s;
+}
+
+.player-avatar.self .player-circle {
+    border-color: #ff6600;
+    border-width: 4px;
+}
+
+.player-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #e0c9a6;
+    border: 3px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+}
+
+.player-name-tag {
+    background: #f4e4c1;
+    padding: 0.3rem 0.8rem;
+    border: 2px solid #333;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+    white-space: nowrap;
+}
+
+.player-soda-count {
+    font-size: 0.8rem;
+    background: #333;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+/* Speech Bubbles */
+.speech-bubble {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    min-width: 150px;
+    max-width: 200px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 0.9rem;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+    z-index: 10;
+    animation: bubbleAppear 0.3s ease-out;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #000;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 13px solid #fff;
+    z-index: 1;
+    margin-top: -1px;
+}
+
+@keyframes bubbleAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Chat */
+.chat-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.chat-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    background: #8b6f47;
+    color: #fff;
+    border: 2px solid #333;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Comic Sans MS', cursive;
+    box-shadow: 2px 2px 0px #000;
+}
+
+.chat-btn:hover {
+    background: #a08050;
+}
+
+.chat-btn:active,
+.chat-btn.sent {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px #000;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 5rem;
+    }
+    
+    .players-circle {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .controls-area {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+        letter-spacing: 0.2rem;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .players-circle {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .player-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+}
