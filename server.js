@@ -14,11 +14,18 @@ io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
 
     // Handle player join
-    socket.on('join', (username) => {
+    socket.on('join', (playerData) => {
+        // Support both old string format and new object format
+        const username = typeof playerData === 'string' ? playerData : playerData.username;
+        const buttSize = typeof playerData === 'string' ? 'Regular' : playerData.buttSize;
+        const avatar = typeof playerData === 'string' ? '😀' : playerData.avatar;
+        
         players.set(socket.id, {
             id: socket.id,
             username: username,
-            sodaCount: 0
+            sodaCount: 0,
+            buttSize: buttSize,
+            avatar: avatar
         });
 
         // Send current players list to the new player
@@ -28,10 +35,12 @@ io.on('connection', (socket) => {
         io.emit('player-joined', {
             id: socket.id,
             username: username,
-            sodaCount: 0
+            sodaCount: 0,
+            buttSize: buttSize,
+            avatar: avatar
         });
 
-        console.log(`${username} joined the game`);
+        console.log(`${username} joined the game (Butt Size: ${buttSize})`);
     });
 
     // Handle soda drinking
